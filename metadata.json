@@ -1,0 +1,6 @@
+{
+  "name": "Vance Portfolio — Full-Stack Developer & Admin CMS",
+  "description": "Production-ready luxury developer portfolio and secure Admin CMS powered by React, Node.js, Express, MongoDB, and Mongoose.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
