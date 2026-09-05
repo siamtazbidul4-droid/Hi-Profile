@@ -9,6 +9,9 @@ import { errorHandler } from './middleware/error.middleware.js';
 export function createApp(): express.Application {
   const app = express();
 
+  // Trust proxy for Render reverse proxy setup
+  app.set('trust proxy', 1);
+
   // Security headers with relaxed content security policy for preview iframe and assets
   app.use(
     helmet({
