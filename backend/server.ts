@@ -1,10 +1,7 @@
-import path from 'path';
 import { createApp } from './app.js';
 import { connectDatabase } from './config/database.js';
 import { seedDatabase } from './services/seed.service.js';
 import { config } from './config/env.js';
-import express from 'express';
-import fs from 'fs';
 
 async function startServer() {
   try {
@@ -20,23 +17,7 @@ async function startServer() {
     const app = createApp();
     const PORT = config.port || 3000;
 
-    // 4. Serve static frontend build if it exists locally (Optional for pure backend service)
-    let distPath = path.resolve(process.cwd(), '../frontend/dist');
-    if (!fs.existsSync(distPath)) {
-      distPath = path.resolve(process.cwd(), 'dist');
-    }
-
-    if (fs.existsSync(distPath)) {
-      app.use(express.static(distPath));
-      app.get('*', (req, res, next) => {
-        if (req.path.startsWith('/api')) {
-          return next();
-        }
-        res.sendFile(path.join(distPath, 'index.html'));
-      });
-    }
-
-    // 5. Start listening on 0.0.0.0:3000
+    // 4. Start listening on 0.0.0.0:3000 (Pure REST API Backend Service)
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`=======================================================`);
       console.log(`🚀 Vance Portfolio Server running at http://localhost:${PORT}`);
@@ -51,6 +32,25 @@ async function startServer() {
 }
 
 startServer();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
