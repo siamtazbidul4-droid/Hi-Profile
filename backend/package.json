@@ -33,7 +33,7 @@
     "@types/multer": "^2.2.0",
     "@types/node": "^22.14.0",
     "@types/nodemailer": "^8.0.1",
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.28.2",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
     "vite": "^8.2.2"
