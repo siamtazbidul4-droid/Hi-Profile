@@ -14,8 +14,10 @@ import {
 } from '../types';
 
 // const API_BASE = '/api';
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
-
+// const API_BASE = import.meta.env.VITE_API_URL || '/api';
+// নিশ্চিত করুন যে ব্যাকএন্ড ইউআরএলের শেষে স্বয়ংক্রিয়ভাবে '/api' যুক্ত হয়ে যাচ্ছে
+const rawApiUrl = import.meta.env.VITE_API_URL || '';
+const API_BASE = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`;
 class ApiClient {
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const url = `${API_BASE}${endpoint}`;
